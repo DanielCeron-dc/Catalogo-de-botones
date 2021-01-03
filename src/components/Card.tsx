@@ -9,11 +9,13 @@ const style: CSSProperties = {
     margin: "10px",
     boxShadow: "0 10px 10px 0 rgba(0,0,0,0.4)",
     height: "150px",
-    width: "100px",
+    minWidth: "100px",
+    maxWidth: "150px",
     display: "block",
     borderStyle: "solid",
     borderColor: "beige",
-    textAlign: "center"
+    textAlign: "center",
+    padding: "10px"
 }
 
 const Card:React.FC<Props> = (props) => {

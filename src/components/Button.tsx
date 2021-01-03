@@ -10,7 +10,7 @@ interface IProps {
 const Button: React.FC<IProps> = (props) => {
   const [hover, setHover] = useState(false);
 
-  let hoverCombinedWithStyle:CSSProperties = {...props.style, ...props.onHover, cursor: "pointer"};
+  let hoverCombinedWithStyle:CSSProperties = {cursor: "pointer", ...props.style, ...props.onHover };
 
   return (
     <button

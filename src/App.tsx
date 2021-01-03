@@ -1,29 +1,23 @@
-import React, { CSSProperties } from "react";
+import React, { CSSProperties, useState } from "react";
 import Header from "./components/Header/CustomHeader";
-import Card from "./components/Card";
-import Button from "./components/Button";
-import buttonStyles from "./tools/buttonStyles"; 
-import hoverStyles from "./tools/hoverStyles";
+import Buttons from "./components/Buttons";
+import Modal from "./components/UI/Modal"; 
+import BackDrop from "./components/UI/BackDrop";
+
 
 function App() {
+
+  const [backDrop, setBackDrop] =useState<boolean>(false); 
+
+   
+
   return (
     <div>
-      <Header></Header>
-      <div style={{ display: "flex" }}>
-        <Card texto={"boton sin estilos"}>
-          <Button>ejecutar</Button>
-        </Card>
-        <Card texto={"RaisedButton"}>
-          <Button style={buttonStyles[0]} onHover={hoverStyles[0]}>
-            ejecutar
-          </Button>
-        </Card>
-        <Card texto={"RaisedButton"}>
-          <Button style={buttonStyles[0]} onHover={hoverStyles[0]}>
-            ejecutar
-          </Button>
-        </Card>
-      </div>
+      <BackDrop show = {backDrop} onCLick = {() => setBackDrop(false)}>
+        <Modal show = {backDrop}> <h1>Hola mundo</h1></Modal>
+      </BackDrop>
+      <Header/>
+      <Buttons toggleBackDrop = {() => setBackDrop(true)} />
     </div>
   );
 }
