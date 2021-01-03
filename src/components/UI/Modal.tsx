@@ -1,12 +1,7 @@
-import React, { CSSProperties,  useEffect, useState } from "react";
-import "./Modal.css";
+import React, { CSSProperties,  } from "react";
 
-
-
-const Modal:React.FC<{show: boolean}> = (props) => {
-
-
-    const [style, setStyle] = useState<CSSProperties>({
+const Modal:React.FC = (props) => {
+    const style:CSSProperties = {
         opacity: 1,
         position: "fixed",
         zIndex: 500,
@@ -16,15 +11,11 @@ const Modal:React.FC<{show: boolean}> = (props) => {
         boxShadow: "1px 1px 1px black",
         padding: "16px",
         left: "15%",
-        top: "15%",
         boxSizing: "border-box",
-        
-    })
+        transform: "translate( 0 , 100px)",
+    }
 
-
-
-
-    return <div style = {  {...style, animation: `${props.show ? "fadeIn" : "fadeOut"} 1s` , }}>
+    return <div style = {style}>
         {props.children}
     </div>
 }

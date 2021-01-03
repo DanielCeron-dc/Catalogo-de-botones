@@ -11,9 +11,9 @@ const style: CSSProperties = {
   backgroundColor: "rgba(0,0,0,0.5)",
 };
 
-const BackDrop: React.FC<{show: boolean;onCLick: () => void; children?: ReactNode | String}> = (props) =>{
+const BackDrop: React.FC<{show: boolean;onCLick: () => void; children?: ReactNode | String, delayUnmount: number}> = (props) =>{
 
-  const shouldRender = useDelayUnmount(props.show, 1);
+  const shouldRender = useDelayUnmount(props.show, props.delayUnmount);
 
   return shouldRender ? (
     <div onClick={() => props.onCLick()} style={style}>{props.children}</div>
