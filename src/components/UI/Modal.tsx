@@ -4,7 +4,7 @@ const Modal:React.FC = (props) => {
     const style:CSSProperties = {
         opacity: 1,
         position: "fixed",
-        zIndex: 500,
+        zIndex: 1500,
         backgroundColor: "white",
         width: "70%",
         border: "1px solid #ccc",
@@ -15,7 +15,7 @@ const Modal:React.FC = (props) => {
         transform: "translate( 0 , 100px)",
     }
 
-    return <div style = {style}>
+    return <div style = {style} onClick = {(e) => {e.stopPropagation()}}>
         {props.children}
     </div>
 }

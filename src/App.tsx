@@ -14,9 +14,10 @@ function App() {
       <BackDrop show = {backDrop} onCLick = {() => setBackDrop(false)} delayUnmount = {1}>
         <Animation show = {backDrop} Animation = "fadeIn 1s" FinalAnimation = "fadeOut 1s">
           <Modal>
-               <Animation show = {backDrop} Animation = "fadeInX 1s" FinalAnimation = "fadeOutX 1s"> 
+              <Animation show = {backDrop} Animation = "fadeInX 1s" FinalAnimation = "fadeOutX 1s"> 
                 <h1>Hola mundo</h1>
-                </Animation> 
+                <button>HOla</button>
+              </Animation>
           </Modal>
         </Animation>
       </BackDrop>
