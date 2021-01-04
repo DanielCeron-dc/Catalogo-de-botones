@@ -20,7 +20,7 @@ const Animation: React.FC<IProps> = (props) => {
   const onAnimationEnd = () => {
     //cuando no debe mostrar y acabó la animación 
     !show && setRender(false);
-    props.onAnimationEnd && props.onAnimationEnd(); 
+    props.onAnimationEnd && props.onAnimationEnd();
   };
 
   return shouldRender ? (

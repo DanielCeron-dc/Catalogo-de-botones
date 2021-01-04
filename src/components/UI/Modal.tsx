@@ -12,7 +12,7 @@ const Modal:React.FC = (props) => {
         padding: "16px",
         left: "15%",
         boxSizing: "border-box",
-        transform: "translate( 0 , 100px)",
+        transform: "translate( 0 , 100px)", //animation ends on the page start, so this is necessary idk why
     }
 
     return <div style = {style} onClick = {(e) => {e.stopPropagation()}}>

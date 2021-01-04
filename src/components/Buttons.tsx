@@ -5,8 +5,13 @@ import buttonStyles from "../tools/buttonStyles";
 import hoverStyles from "../tools/hoverStyles";
 import Animation, { Animaciones } from "../components/Animations/Animation";
 
-const Buttons: React.FC<{ toggleBackDrop: () => void }> = (props) => {
+const Buttons: React.FC<{ toggleBackDrop: () => void, selectButton: (value:number, ButtonName:string) => void}> = (props) => {
   const [ejecutarAnimacion, setEjecutarAnimacion] = useState(false);
+
+   const onCLickHandler = (value: number, ButtonName:string) => {
+    props.selectButton(value, ButtonName);
+    props.toggleBackDrop();
+   }
 
   return (
     <div style={{ display: "flex" }}>
@@ -33,7 +38,7 @@ const Buttons: React.FC<{ toggleBackDrop: () => void }> = (props) => {
         <Button
           style={buttonStyles[1]}
           onHover={hoverStyles[1]}
-          onClick={props.toggleBackDrop}
+          onClick={() => onCLickHandler(1, "TextButton")}
         >
           ejecutar
         </Button>
@@ -42,7 +47,7 @@ const Buttons: React.FC<{ toggleBackDrop: () => void }> = (props) => {
         <Button
           style={buttonStyles[2]}
           onHover={hoverStyles[2]}
-          onClick={props.toggleBackDrop}
+          onClick={() => onCLickHandler(2, "StadiumButton")}
         >
           ejecutar
         </Button>
