@@ -1,16 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useContext} from "react";
+
+import {ButtonsContext} from "./HOC/ButtonsProvider";
+
 import Card from "./Card";
 import Button from "./Button";
 import buttonStyles from "../tools/buttonStyles";
 import hoverStyles from "../tools/hoverStyles";
 import Animation, { Animaciones } from "../components/Animations/Animation";
 
-const Buttons: React.FC<{ toggleBackDrop: () => void, selectButton: (value:number, ButtonName:string) => void}> = (props) => {
+const Buttons: React.FC<{ toggleBackDrop: () => void}> = (props) => {
   const [ejecutarAnimacion, setEjecutarAnimacion] = useState(false);
+  const {dispatch} = useContext(ButtonsContext);
 
    const onCLickHandler = (value: number, ButtonName:string) => {
-    props.selectButton(value, ButtonName);
+    //props.selectButton(value, ButtonName);
     props.toggleBackDrop();
+    dispatch(
+      {
+        type: "selectButton",
+        name: ButtonName,
+        value
+      }
+    );
    }
 
   return (
