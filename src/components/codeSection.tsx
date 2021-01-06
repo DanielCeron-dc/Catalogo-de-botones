@@ -1,4 +1,4 @@
-import React, { CSSProperties, useContext} from "react"; 
+import React, {  useContext} from "react"; 
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atelierCaveDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import {ButtonsContext} from "./HOC/ButtonsProvider";
@@ -12,7 +12,7 @@ const CodeSection: React.FC = () => {
   const {ButtonsState} =useContext(ButtonsContext);
 
     return <React.Fragment>
-        <div style = {{textAlign: "center"}}>
+                <div style = {{textAlign: "center"}}>
                   <h1>{ButtonsState.ButtonName}</h1>
                 </div>
                 

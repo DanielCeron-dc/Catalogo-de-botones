@@ -15,7 +15,7 @@ const Animation: React.FC<IProps> = (props) => {
 
   useEffect(() => {
     show && setRender(true);
-  });
+  }, [show]);
 
   const onAnimationEnd = () => {
     //cuando no debe mostrar y acabó la animación 

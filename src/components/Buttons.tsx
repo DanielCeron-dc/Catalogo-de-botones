@@ -12,22 +12,22 @@ const Buttons: React.FC<{ toggleBackDrop: () => void}> = (props) => {
   const [ejecutarAnimacion, setEjecutarAnimacion] = useState(false);
   const {dispatch} = useContext(ButtonsContext);
 
-   const onCLickHandler = (value: number, ButtonName:string) => {
+   const onCLickHandler = (value: number, name:string) => {
     //props.selectButton(value, ButtonName);
     props.toggleBackDrop();
     dispatch(
       {
         type: "selectButton",
-        name: ButtonName,
+        name,
         value
       }
     );
    }
 
   return (
-    <div style={{ display: "flex" }}>
-      <Card texto={"boton sin estilos"}>
-        <Button onClick={props.toggleBackDrop}>ejecutar</Button>
+    <div style={{ display: "flex", flexWrap: "wrap" }}>
+      <Card texto={"boton sin estilos, CLick para ver los estilos de el de al lado ->"}>
+        <Button onClick={() => onCLickHandler(0, "Contained Button")}>ejecutar</Button>
       </Card>
       <Card texto={"contained Button"}>
         <Animation
