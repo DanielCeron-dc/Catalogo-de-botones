@@ -1,29 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import Header from "./components/Header/CustomHeader";
 import Buttons from "./components/Buttons";
-import Modal from "./components/UI/Modal"; 
 import BackDrop from "./components/UI/BackDrop";
-import Animation from "./components/Animations/Animation"; 
-import CodeSection from "./components/codeSection"; 
-import ButtonsProvider from "./components/HOC/ButtonsProvider";
+import BackDropContent from "./components/BackDropContent";
+import MainProvider from "./components/HOC/MainProvider";
 
 function App() {
-  const [backDrop, setBackDrop] =useState<boolean>(false);
-  
+
+  console.log("App Renderizada");
+
+
   return (
-      <ButtonsProvider>
-        <BackDrop show = {backDrop} onCLick = {() => setBackDrop(false)} delayUnmount = {0.25}>
-          <Animation show = {backDrop} Animation = "fadeIn 0.5s" FinalAnimation = "fadeOut 0.25s">
-            <Modal>
-                <Animation show = {backDrop} Animation = "fadeInX 0.5s" FinalAnimation = "fadeOutX 0.25s"> 
-                  <CodeSection/>
-                </Animation>
-            </Modal>
-          </Animation>
+      <MainProvider>
+        <BackDrop  delayUnmount = {0.25}>
+          <BackDropContent/>
         </BackDrop>
         <Header/>
-        <Buttons toggleBackDrop = {() => setBackDrop(true)} />
-      </ButtonsProvider>
+        <Buttons/>
+      </MainProvider>
   );
 }
 
