@@ -33,6 +33,19 @@
       boxShadow: "0 2px 3px 0 rgba(0,0,0,0.3)",
       transition: "1s",
     },
+    {  
+ 
+        height: '40px',
+        width: "40px",
+        display: 'flex !important',
+        backgroundColor: "limegreen",
+        alignItems: 'center',
+        color: '#fff',
+        fontSize: '30px !important',
+        transition: '1.5s ease-out',
+        transform: "skewY(-41deg)"
+      
+    },
   ];
 
   export default buttonStyles; 

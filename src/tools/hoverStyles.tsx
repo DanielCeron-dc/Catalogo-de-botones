@@ -14,6 +14,11 @@ const hoverStyles: CSSProperties[] = [
       backgroundColor: "rgb(161, 166, 173)",
       boxShadow: "0 1px 5px 0 rgba(0,0,0,0.4)"
     },
+    {
+      backgroundColor: "rgb(161, 166, 173)",
+      boxShadow: "0 1px 5px 0 rgba(0,0,0,0.4)",
+      transform: "translate(0,-10px) skewY(-41deg)"
+    },
   ];
 
   export default hoverStyles;

@@ -1,6 +1,6 @@
 import React from "react";
 import Header from "./components/Header/CustomHeader";
-import Buttons from "./components/Buttons";
+import CardsWithButton from "./components/CardsWithButton";
 import BackDrop from "./components/UI/BackDrop";
 import BackDropContent from "./components/BackDropContent";
 import MainProvider from "./components/HOC/MainProvider";
@@ -16,7 +16,7 @@ function App() {
           <BackDropContent/>
         </BackDrop>
         <Header/>
-        <Buttons/>
+        <CardsWithButton/>
       </MainProvider>
   );
 }
