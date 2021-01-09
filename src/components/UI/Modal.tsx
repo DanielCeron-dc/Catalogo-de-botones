@@ -11,6 +11,7 @@ const Modal:React.FC = (props) => {
         zIndex: 1500,
         backgroundColor: "white",
         width: windowsWidth< 600 ? "100%" : "50%",
+      
 		left: windowsWidth< 600 ? "0" : "22%",
         border: "1px solid #ccc",
         boxShadow: "1px 1px 1px black",

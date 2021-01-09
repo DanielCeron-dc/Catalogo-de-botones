@@ -1,13 +1,16 @@
 import React, { createContext , useReducer} from "react";
 
 type State  = {
+    complex: boolean, 
     selectedButton: number,
     ButtonName: string,
     backDropState: boolean
 };
 type Action = {
     type: "selectButton", name: string, value: number, 
-} | { type: "DESACTIVE_BACKDROP"}; 
+} | {
+    type: "selectButtonComplex", name: string, value: number, 
+}|{ type: "DESACTIVE_BACKDROP"}; 
 
 
 type MainContextType = {
@@ -20,6 +23,7 @@ const InitialState:State= {
     selectedButton: 0,
     ButtonName: "Prueba",
     backDropState: false, 
+    complex: false, 
 };
 
 export const MainContext = createContext<MainContextType>({MainState: InitialState, dispatch: () => null});
@@ -27,7 +31,9 @@ export const MainContext = createContext<MainContextType>({MainState: InitialSta
 const Reducer = (state:State, action:Action):State => {
     switch (action.type) {
         case "selectButton":
-            return { selectedButton:action.value, ButtonName: action.name, backDropState: true}; 
+            return { selectedButton:action.value, ButtonName: action.name, backDropState: true, complex: false}; 
+        case "selectButtonComplex": 
+            return {selectedButton:action.value, ButtonName: action.name, backDropState: true, complex: true}
         case "DESACTIVE_BACKDROP":
             return {...state, backDropState: false};
         case undefined:

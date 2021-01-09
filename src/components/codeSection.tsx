@@ -4,6 +4,7 @@ import { atelierCaveDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import {MainContext} from "./HOC/MainProvider";
 import ButtonStyle from "../tools/buttonStyles";
 import HoverStyles from "../tools/hoverStyles"; 
+import {complexStyles} from "../tools/ComplexStyles";
 
 
 
@@ -11,7 +12,20 @@ const CodeSection: React.FC = () => {
 
   const {MainState} =useContext(MainContext);
 
-    return <React.Fragment>
+    return MainState.complex ? <React.Fragment>
+                <div style = {{textAlign: "center"}}>
+                  <h1>{MainState.ButtonName}</h1>
+                </div>
+                
+                <h4>Code: </h4>
+                    <SyntaxHighlighter  language="css" style = {atelierCaveDark}  customStyle = {{height: "400px"}}showLineNumbers>
+                      {complexStyles[MainState.selectedButton]}
+                    </SyntaxHighlighter>
+                </React.Fragment>  
+                
+                : 
+                
+                <React.Fragment>
                 <div style = {{textAlign: "center"}}>
                   <h1>{MainState.ButtonName}</h1>
                 </div>

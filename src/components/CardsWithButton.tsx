@@ -13,10 +13,10 @@ const Buttons: React.FC = () => {
   
   const {dispatch} = useContext(MainContext);
 
-  const onCLickHandler = (value: number, name:string) => {
+  const onCLickHandler = (value: number, name:string, complex ?: boolean) => {
     dispatch(
       {
-        type: "selectButton",
+        type:complex ?  "selectButtonComplex" : "selectButton",
         name,
         value
       }
@@ -46,8 +46,10 @@ const Buttons: React.FC = () => {
       {CardWithButton(1, "TextButton")}
       {CardWithButton(2, "StadiumButton")}
       {CardWithButton(3, "3D simple", <h1 style ={{marginBlock: 2}}>E</h1>)}
-      <Card texto = "in creation...">
-        <TreeDButton/>
+      <Card texto = "3D 2.0">
+        <TreeDButton onClick = {() => onCLickHandler(0, "3D 2.0",true)}>
+          <h1>E</h1>
+        </TreeDButton>
       </Card>
 
       
