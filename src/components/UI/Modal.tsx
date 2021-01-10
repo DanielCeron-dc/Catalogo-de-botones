@@ -10,9 +10,9 @@ const Modal:React.FC = (props) => {
         position: "fixed",
         zIndex: 1500,
         backgroundColor: "white",
-        width: windowsWidth< 600 ? "100%" : "50%",
-      
-		left: windowsWidth< 600 ? "0" : "22%",
+        maxWidth: windowsWidth< 600 ? "100%" : "80%",
+        right:  windowsWidth< 600 ? "0" :"10%",
+        left:  windowsWidth< 600 ? "0" : "10%",
         border: "1px solid #ccc",
         boxShadow: "1px 1px 1px black",
         padding: "16px",

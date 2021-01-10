@@ -1,29 +1,27 @@
 import React, { createContext , useReducer} from "react";
+import {ICodeSection} from "../codeSection";
 
 type State  = {
-    complex: boolean, 
-    selectedButton: number,
-    ButtonName: string,
-    backDropState: boolean
+    codeSelected : ICodeSection[]; 
+    backDropState: boolean;
+    title:string;
 };
-type Action = {
-    type: "selectButton", name: string, value: number, 
-} | {
-    type: "selectButtonComplex", name: string, value: number, 
-}|{ type: "DESACTIVE_BACKDROP"}; 
 
+type Action = {
+    type: "selectButton",  codeSelected : ICodeSection[], title: string 
+} | { 
+    type: "DESACTIVE_BACKDROP"
+}; 
 
 type MainContextType = {
     MainState: State,
     dispatch: React.Dispatch<Action>,
 };
 
-
 const InitialState:State= {
-    selectedButton: 0,
-    ButtonName: "Prueba",
-    backDropState: false, 
-    complex: false, 
+    codeSelected:[{complex: false, description: "", index: 1}],
+    backDropState: false,
+    title :""
 };
 
 export const MainContext = createContext<MainContextType>({MainState: InitialState, dispatch: () => null});
@@ -31,9 +29,7 @@ export const MainContext = createContext<MainContextType>({MainState: InitialSta
 const Reducer = (state:State, action:Action):State => {
     switch (action.type) {
         case "selectButton":
-            return { selectedButton:action.value, ButtonName: action.name, backDropState: true, complex: false}; 
-        case "selectButtonComplex": 
-            return {selectedButton:action.value, ButtonName: action.name, backDropState: true, complex: true}
+            return { title: action.title, codeSelected: action.codeSelected, backDropState: true, }; 
         case "DESACTIVE_BACKDROP":
             return {...state, backDropState: false};
         case undefined:

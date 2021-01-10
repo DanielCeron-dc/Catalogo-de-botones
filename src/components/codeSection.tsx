@@ -1,4 +1,4 @@
-import React, {  useContext} from "react"; 
+import React, {  CSSProperties, useContext} from "react"; 
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atelierCaveDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import {MainContext} from "./HOC/MainProvider";
@@ -8,39 +8,62 @@ import {complexStyles} from "../tools/ComplexStyles";
 
 
 
+
+export interface ICodeSection {
+  complex: boolean;
+  index: number;
+  description: string;
+}
+
+function ConvertToString(code:React.CSSProperties):string{
+  return JSON.stringify(code).replace(/,"/g, ',\n "').replace("{" ,'').replace('}' ,''); 
+}
+
+
 const CodeSection: React.FC = () => {
 
   const {MainState} =useContext(MainContext);
+ 
+  const customStyle:CSSProperties = {
+    display:"grid",
+     width: MainState.codeSelected.length > 1 ?  "50%" : "100%",
+  }
 
-    return MainState.complex ? <React.Fragment>
-                <div style = {{textAlign: "center"}}>
-                  <h1>{MainState.ButtonName}</h1>
-                </div>
-                
-                <h4>Code: </h4>
-                    <SyntaxHighlighter  language="css" style = {atelierCaveDark}  customStyle = {{height: "400px"}}showLineNumbers>
-                      {complexStyles[MainState.selectedButton]}
-                    </SyntaxHighlighter>
-                </React.Fragment>  
-                
-                : 
-                
-                <React.Fragment>
-                <div style = {{textAlign: "center"}}>
-                  <h1>{MainState.ButtonName}</h1>
-                </div>
-                
-                <h4>CSS in line (buttonStyles)</h4>
-                <SyntaxHighlighter  language="css" style = {atelierCaveDark}>
-                  {JSON.stringify(ButtonStyle[MainState.selectedButton]).replace(/,"/g, ',\n "').replace("{" ,'').replace('}' ,'')}
-                </SyntaxHighlighter>
 
-                <h4>CSS in line (hoverStyles Added)</h4>
-                <SyntaxHighlighter  language="css" style = {atelierCaveDark}>
-                 {JSON.stringify(HoverStyles[MainState.selectedButton]).replace(/,"/g, ',\n "').replace("{" ,'').replace('}' ,'')}
-                </SyntaxHighlighter>
+    return  <React.Fragment>
+         <div style = {{textAlign: "center"}}>
+        <h1>{MainState.title}</h1>
+      </div>
 
-    </React.Fragment>
+      <div style={{width:"100%", display: "flex", flexWrap: "wrap" }}>
+   
+      {MainState.codeSelected.map((code) => <div style = {customStyle} > 
+     
+      <h4>{code.description}</h4>
+      <SyntaxHighlighter  language="css" style = {atelierCaveDark}  customStyle = {{maxHeight: "400px"}} >
+        {code.complex ? complexStyles[code.index] : ConvertToString(ButtonStyle[code.index])}
+      </SyntaxHighlighter>
+      {/* ---------------------------- optional -------------------------------------------------------------------- */}
+      {!code.complex &&<React.Fragment>
+
+        <h4>in line Code: </h4>
+        <SyntaxHighlighter  language="css" style = {atelierCaveDark}  customStyle = {{maxHeight: "400px"}} >
+          {code.complex ? complexStyles[code.index] : ConvertToString(HoverStyles[code.index])}
+        </SyntaxHighlighter>
+
+
+      </React.Fragment> 
+      
+      }
+      
+    </div>)}
+    </div>
+
+
+    </React.Fragment> 
+    
+    
+    
 }
 
 export default CodeSection; 
