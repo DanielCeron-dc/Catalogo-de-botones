@@ -23,39 +23,33 @@ function ConvertToString(code:React.CSSProperties):string{
 const CodeSection: React.FC = () => {
 
   const {MainState} =useContext(MainContext);
+
  
-  const customStyle:CSSProperties = {
+  const CodeContainerStyle:CSSProperties = {
     display:"grid",
      width: MainState.codeSelected.length > 1 ?  "50%" : "100%",
   }
 
 
     return  <React.Fragment>
-         <div style = {{textAlign: "center"}}>
+      <div style = {{textAlign: "center"}}>
         <h1>{MainState.title}</h1>
       </div>
 
       <div style={{width:"100%", display: "flex", flexWrap: "wrap" }}>
-   
-      {MainState.codeSelected.map((code) => <div style = {customStyle} > 
-     
+      {MainState.codeSelected.map((code, index) => <div style = {CodeContainerStyle} key = {index} > 
       <h4>{code.description}</h4>
-      <SyntaxHighlighter  language="css" style = {atelierCaveDark}  customStyle = {{maxHeight: "400px"}} >
+      <SyntaxHighlighter  language={code.complex ? "typescript" : "css"} style = {atelierCaveDark}  customStyle = {{maxHeight: "400px"}} >
         {code.complex ? complexStyles[code.index] : ConvertToString(ButtonStyle[code.index])}
       </SyntaxHighlighter>
-      {/* ---------------------------- optional -------------------------------------------------------------------- */}
+      {/* ---------------------------- optional ------------------------------------------------------ */}
       {!code.complex &&<React.Fragment>
-
         <h4>in line Code: </h4>
         <SyntaxHighlighter  language="css" style = {atelierCaveDark}  customStyle = {{maxHeight: "400px"}} >
           {code.complex ? complexStyles[code.index] : ConvertToString(HoverStyles[code.index])}
         </SyntaxHighlighter>
-
-
-      </React.Fragment> 
-      
+      </React.Fragment>
       }
-      
     </div>)}
     </div>
 

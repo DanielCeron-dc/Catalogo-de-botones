@@ -4,6 +4,7 @@ import Animation from "./Animations/Animation";
 import Modal from "./UI/Modal"; 
 import CodeSection from "./codeSection"; 
 
+
 const BackDropContent:React.FC = () => {
     const {MainState} = useContext(MainContext);
     
