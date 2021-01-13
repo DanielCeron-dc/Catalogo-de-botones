@@ -1,5 +1,6 @@
 import React, { useContext, ReactFragment, ReactNode } from "react";
 import TreeDButton from "./Buttons/3dButton/3dButton";
+import ButtonTwo from "./Buttons/3dButton2/DoorButton";  
 
 import { ICodeSection } from "./codeSection";
 import { MainContext } from "./HOC/MainProvider";
@@ -61,6 +62,21 @@ const Buttons: React.FC = () => {
         >
           <h1>E</h1>
         </TreeDButton>
+      </Card>
+      <Card texto="Door">
+        <ButtonTwo
+          onClick={() =>
+            onCLickHandler(
+              [
+                { complex: true, description: "React Component", index: 2 },
+                { complex: true, description: "React Component MiniPlane ", index: 3 },
+              ],
+              "Door"
+            )
+          }
+        >
+          <h1>E</h1>
+        </ButtonTwo>
       </Card>
     </div>
   );

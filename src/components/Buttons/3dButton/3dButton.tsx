@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import MiniPlane from "./MiniPlane"; 
-import Move from "./Move"; 
+import Move from "../../Animations/Move"; 
 
 const TreeDButton:React.FC<{onClick: () => void}> = (props) => {
     const [hover, setHover] = useState(false); 

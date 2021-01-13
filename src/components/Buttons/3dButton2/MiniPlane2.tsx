@@ -1,14 +1,18 @@
 import React, { CSSProperties} from "react"
 
+
+
+
+
 const MiniPlane:React.FC<{rgba: string, profundidad?: boolean}> = (props) => {
 
     const style: CSSProperties = {
-        transform: "skewY(-41deg)",
-        width: "50px",
-        height: "70px",
+        
+        width: "30px",
+        height: "90px",
         backgroundColor: "rgba("+props.rgba+")", 
         display: "inline-grid",
-        position: "fixed",
+        position: "absolute",
         color: "white",
         justifyContent: "center",
         border: "none", 
@@ -20,11 +24,11 @@ const MiniPlane:React.FC<{rgba: string, profundidad?: boolean}> = (props) => {
 
 
     const profundidad1:CSSProperties = {
-        backgroundColor: "black",
+        backgroundColor: "sandybrown",
         content: '',
         position: "absolute",
         top:"-1px",
-        left: "-7px",
+        left: "-9px",
         width: "10px",
         height: "100%",
         background: "#2a2a2a",
@@ -37,7 +41,7 @@ const MiniPlane:React.FC<{rgba: string, profundidad?: boolean}> = (props) => {
         content: '',
         position: "absolute",
         bottom: "-10px",
-        left: "1.5px",
+        left: "0.5px",
         width: "100%",
         height: "10px",
         background: "#2a2a2a",
