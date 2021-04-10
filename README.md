@@ -1,3 +1,4 @@
+![Captura de pantalla 2021-04-09 210056](https://user-images.githubusercontent.com/62627348/114254768-e7423a80-9976-11eb-80b1-b47718886b29.png)
 ![MIniCatalogoDeBotonesCodigos](https://user-images.githubusercontent.com/62627348/114254758-da254b80-9976-11eb-90f1-6370a127eeb3.png)
 # Getting Started with Create React App
 
