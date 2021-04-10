@@ -1,3 +1,4 @@
+![MIniCatalogoDeBotonesCodigos](https://user-images.githubusercontent.com/62627348/114254758-da254b80-9976-11eb-90f1-6370a127eeb3.png)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
